@@ -1,6 +1,5 @@
 package ek.osnb.jpa.orders.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import ek.osnb.jpa.common.model.BaseEntity;
 import jakarta.persistence.*;
 
@@ -12,7 +11,6 @@ import java.util.List;
 @Table(name = "orders")
 public class Order extends BaseEntity {
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "order", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private List<OrderLine> orderLines = new ArrayList<>();
 
